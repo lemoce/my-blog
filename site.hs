@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Monoid         (mappend)
+import           Data.Time.Format    (TimeLocale (..))
+import           Data.Time.LocalTime (TimeZone (..))
 import           Hakyll
 
 
@@ -63,5 +65,34 @@ main = hakyll $ do
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
+    dateFieldWith brTimeLocale "date" "%A, %e de %B de %Y" `mappend`
     defaultContext
+
+brTimeLocale :: TimeLocale
+brTimeLocale =  TimeLocale {
+    wDays  = [ ("domingo",      "dom"), ("segunda-feira", "seg")
+             , ("terça-feira",  "ter"), ("quarta-feira" , "qua")
+             , ("quinta-feira", "qui"), ("sexta-feira"  , "sex")
+             , ("sábado",       "sab")
+             ],
+
+    months = [ ("janeiro",  "jan"), ("fevereiro", "fev")
+             , ("março",    "mar"), ("abril",     "abr")
+             , ("maio",     "mai"), ("junho",     "jun")
+             , ("julho",    "jul"), ("agosto",    "ago")
+             , ("setembro", "sep"), ("outubro",   "out")
+             , ("novembro", "nov"), ("dezembro",  "dez")
+             ],
+    amPm = (" antes meio-dia", " após meio-dia"),
+    dateTimeFmt = "%a %e %b %Y, %H:%M:%S %Z",
+    dateFmt   = "%d/%m/%Y",
+    timeFmt   = "%H:%M:%S",
+    time12Fmt = "%I:%M:%S %p",
+    knownTimeZones = [ TimeZone (-2 * 60) False "FNT"
+                     , TimeZone (-3 * 60) False "BRT"
+                     , TimeZone (-2 * 60) True  "BRST"
+                     , TimeZone (-4 * 60) False "AMT"
+                     , TimeZone (-3 * 60) True  "AMST"
+                     , TimeZone (-5 * 60) False "ACT"
+                     ]
+}
