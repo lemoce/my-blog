@@ -7,6 +7,17 @@ import           Hakyll
 
 
 --------------------------------------------------------------------------------
+myFeedConfiguration :: FeedConfiguration
+myFeedConfiguration = FeedConfiguration
+    { feedTitle       = "Lemoce Desire: contemplating a new world"
+    , feedDescription = "Thoughts about new ideas and concepts (in Portuguese, English and Japanese)"
+    , feedAuthorName  = "Leandro Cerencio"
+    , feedAuthorEmail = "cerencio@yahoo.com.br"
+    , feedRoot        = "https://lemoce.000webhostapp.com"
+    }
+
+
+--------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -61,6 +72,13 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
+    create ["atom.xml"] $ do
+        route idRoute
+        compile $ do
+            let feedCtx = postCtx `mappend`
+                              constField "description" "This is post description"
+            posts <- fmap (take 10) . recentFirst =<< loadAll "posts/*"
+            renderAtom myFeedConfiguration feedCtx posts
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
