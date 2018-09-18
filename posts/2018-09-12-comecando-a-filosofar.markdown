@@ -1,7 +1,7 @@
 ---
 title: Começando a filosofar
 description: Por que estamos aqui?
-tags: filosofia, computação, música
+tags: filosofia, computacao, musica
 ---
 
 Decidi criar um blog para compartilhar experiências e pensamentos das

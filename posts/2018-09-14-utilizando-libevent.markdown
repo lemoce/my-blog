@@ -1,7 +1,7 @@
 ---
 title: Utilizando libevent
 description: TCP/IP com eventos?
-tags: tcp/ip, c/c++, programação
+tags: tcp-ip, c-c++, programacao
 ---
 
 Normalmente, drivers para banco de dados sofrem um problema recorrente:
