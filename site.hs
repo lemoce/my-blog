@@ -35,11 +35,11 @@ main = hakyll $ do
             >>= relativizeUrls
 
     tags <- buildTags "posts/*" (fromCapture "tags/*.html")
-    tagsRules tags $ \tag pattern -> do
+    tagsRules tags $ \tag pattrn -> do
         let title = "Posts tagged \"" ++ tag ++ "\""
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll pattern
+            posts <- recentFirst =<< loadAll pattrn
             let ctx = constField "title" title
                       `mappend` listField "posts" postCtx (return posts)
                       `mappend` defaultContext
@@ -52,8 +52,8 @@ main = hakyll $ do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
 
     create ["archive.html"] $ do
