@@ -45,6 +45,11 @@ article .header {
   color: #555;
 }
 
+article img {
+  width: 100%;
+  height: auto;
+}
+
 .logo a {
   font-weight: bold;
   color: #000;
