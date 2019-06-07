@@ -28,7 +28,7 @@ a nossa consistência para a prosperidade. Pular 7 ondas ou encher a cara como
 se não existisse o amanhã ficam na mesma face do sólido, sob o olhar dessa
 composição.
 
-Como mensagem para o ano novo, escolha um comportamento que o faz ficar longe
+Como mensagem para o ano novo, escolha um comportamento, que o faz ficar longe
 de uma vibração positiva. E comece pequeno, perceba em que momentos você passa
 a emanar essa energia, qual é a condição para que isso aconteça? O reconhecimento
 é o primeiro passo. A cada momento em que esse comportamento surge perdoar é
