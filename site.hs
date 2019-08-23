@@ -110,10 +110,10 @@ postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
 
 brTimeLocale :: TimeLocale
 brTimeLocale =  TimeLocale {
-    wDays  = [ ("domingo",      "dom"), ("segunda-feira", "seg")
-             , ("terça-feira",  "ter"), ("quarta-feira" , "qua")
-             , ("quinta-feira", "qui"), ("sexta-feira"  , "sex")
-             , ("sábado",       "sab")
+    wDays  = [ ("Domingo",      "dom"), ("Segunda-feira", "seg")
+             , ("Terça-feira",  "ter"), ("Quarta-feira" , "qua")
+             , ("Quinta-feira", "qui"), ("Sexta-feira"  , "sex")
+             , ("Sábado",       "sab")
              ],
 
     months = [ ("janeiro",  "jan"), ("fevereiro", "fev")
