@@ -13,7 +13,7 @@ myFeedConfiguration = FeedConfiguration
     , feedDescription = "Thoughts about new ideas and concepts (in Portuguese, English and Japanese)"
     , feedAuthorName  = "Leandro Cerencio"
     , feedAuthorEmail = "cerencio@yahoo.com.br"
-    , feedRoot        = "https://lemoce.000webhostapp.com"
+    , feedRoot        = "https://boteco.mat.br"
     }
 
 
